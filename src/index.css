@@ -46,7 +46,9 @@ button {
   font-size: 1em;
   font-weight: 500;
   font-family: inherit;
+  color:#ff9d5a;
   background-color: #1a1a1a;
+  border-color: #ff9d5a;
   cursor: pointer;
   transition: border-color 0.25s;
 }
