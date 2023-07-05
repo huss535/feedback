@@ -1,15 +1,17 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import {CSSTransition} from 'react-transition-group'; 
 
 export default function SubmitForm() {
   const [submission, setSubmission] = useState("");
   const navigate = useNavigate();
+  
 
   const handleSubmission = (event) => {
     event.preventDefault();
     const submittedValue = event.target.submission.value;
     setSubmission(submittedValue);
-    fetch(`http://localhost:8000/api/${submission}`, {
+    /*fetch(`http://localhost:8000/api/${submission}`, {
       method: 'POST',
     })
       .then((response) => {
@@ -24,13 +26,15 @@ export default function SubmitForm() {
       .catch((error) => {
         console.error('Error submitting form:', error);
         // Handle error scenario
-      });
+      });*/
     console.log(submittedValue);
     navigate('/submitted');
   };
 
   return (
     <>
+    
+    
     <h1>Please rate your working experience.</h1>
     <h2>Note that all submissions are anonymous.</h2>
 
@@ -38,8 +42,9 @@ export default function SubmitForm() {
       <textarea name="submission" value={submission} onChange={(e) => setSubmission(e.target.value)}></textarea>
       <br />
       <br />
-      <button type="submit">Submit Review</button>
+      <button type="submit" >Submit Review</button>
     </form>
+
     </>
   );
 }

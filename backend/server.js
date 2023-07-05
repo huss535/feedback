@@ -8,7 +8,7 @@ const { v4: uuidv4 } = require('uuid');
 
 require('dotenv').config();
 
-const entryNumber = uuidv4(); // Generate a unique entryNumber for the items parition key using UUID
+ // Generate a unique entryNumber for the items parition key using UUID
 const accessKey = process.env.ACCESS_KEY;
 const secretAccessKey = process.env.SECRET_ACCESS_KEY;
 
@@ -61,6 +61,7 @@ app.get('/api', (req, res) => {
  */
 app.post('/api/:comment', (req, res) => {
   const comment = req.params.comment;
+  const entryNumber = uuidv4();
 
   const params = {
     TableName: 'employeeComments',
